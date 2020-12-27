@@ -1,0 +1,244 @@
+\hypertarget{bezier_8cpp}{}\section{C\+:/\+Users/sai/\+Desktop/\+Bez/bezier.cpp File Reference}
+\label{bezier_8cpp}\index{C\+:/\+Users/sai/\+Desktop/\+Bez/bezier.\+cpp@{C\+:/\+Users/sai/\+Desktop/\+Bez/bezier.\+cpp}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$G\+L/glut.\+h$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$glm/glm.\+hpp$>$}\newline
+{\ttfamily \#include $<$glm/vec3.\+hpp$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{bezier_8cpp_a953cf853ec51807b3cfe5f6ca96e6547}{remove\+\_\+coordinates}} (float x, float y)
+\begin{DoxyCompactList}\small\item\em Removes coordinates from control points array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bezier_8cpp_a400318ff753047443b2de12efd62b63d}{add\+\_\+coordinates}} (float x, float y)
+\begin{DoxyCompactList}\small\item\em Adds coordinates to the control points array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bezier_8cpp_a9f40831210a497d8188a40ea8418fbc2}{replace\+\_\+coordinates}} (float x\+\_\+old, float y\+\_\+old, float x\+\_\+new, float y\+\_\+new)
+\begin{DoxyCompactList}\small\item\em Replaces a control point in the array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bezier_8cpp_ae13f73697abbca1016876a62a2193940}{plot\+Point}} (int x, int y, float color)
+\begin{DoxyCompactList}\small\item\em Plots point on the window. \end{DoxyCompactList}\item 
+float $\ast$ \mbox{\hyperlink{bezier_8cpp_aead2e7e3120ea992263427dbc4faf541}{lerp}} (float start\mbox{[}2\mbox{]}, float end\mbox{[}2\mbox{]}, float t)
+\begin{DoxyCompactList}\small\item\em Point on the line segment between 2 points. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bezier_8cpp_a589c0f9f14b26d6b7aaece9a5ed3c9b9}{bezier}} (float controls\mbox{[}$\,$\mbox{]}\mbox{[}2\mbox{]}, int number, float t)
+\begin{DoxyCompactList}\small\item\em Constructs a bezier curve recursively using de\+Casteljau\textquotesingle{}s algorithm. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bezier_8cpp_ac76a5d78172a826cd6ee9512b89a86c0}{mouse}} (int button, int state, int x, int y)
+\begin{DoxyCompactList}\small\item\em Open\+GL mouse callback based on the mouse button clicked and click-\/time. If left mouse button is clicked for a brief amount of time, then we add a new control point. We can drag the points by holding down the left mouse button over the required point and move to a new position on the screen. If right mouse button is clicked on a point then that point is deleted. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bezier_8cpp_a02fd73d861ef2e4aabb38c0c9ff82947}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initializes Open\+GL parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bezier_8cpp_a1e5b20fed15743656bb6d2e6a6ea6269}{display}} ()
+\begin{DoxyCompactList}\small\item\em Open\+GL display callback. Runs the bezier curve implementation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{bezier_8cpp_a896e882e225b3fea4c8d2063ca86bed0}\label{bezier_8cpp_a896e882e225b3fea4c8d2063ca86bed0}} 
+void {\bfseries update} (int data)
+\item 
+\mbox{\Hypertarget{bezier_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{bezier_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+int {\bfseries main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+float {\bfseries control\+\_\+points} \mbox{[}100\mbox{]}\mbox{[}2\mbox{]}
+\item 
+\mbox{\Hypertarget{bezier_8cpp_af95626628b3158ecd67b30ded5221428}\label{bezier_8cpp_af95626628b3158ecd67b30ded5221428}} 
+int {\bfseries points\+\_\+count} = 0
+\item 
+\mbox{\Hypertarget{bezier_8cpp_ab0992d490dfd7fc6be18146662b5798a}\label{bezier_8cpp_ab0992d490dfd7fc6be18146662b5798a}} 
+int {\bfseries D\+I\+M\+E\+N\+\_\+X} = 600
+\item 
+\mbox{\Hypertarget{bezier_8cpp_a4aaf40005a3ec5d24cbf0ec2161e7d4b}\label{bezier_8cpp_a4aaf40005a3ec5d24cbf0ec2161e7d4b}} 
+int {\bfseries D\+I\+M\+E\+N\+\_\+Y} = 600
+\item 
+\mbox{\Hypertarget{bezier_8cpp_ab586e61180f46d21317c75ddffea47a9}\label{bezier_8cpp_ab586e61180f46d21317c75ddffea47a9}} 
+int {\bfseries S\+T\+A\+TE} = -\/1
+\item 
+\mbox{\Hypertarget{bezier_8cpp_a9f1a85c4098dac778790a5d554ad3687}\label{bezier_8cpp_a9f1a85c4098dac778790a5d554ad3687}} 
+float {\bfseries T\+O\+U\+C\+H\+\_\+\+B\+U\+F\+F\+ER} = 4
+\item 
+\mbox{\Hypertarget{bezier_8cpp_aefa5c486c2a7f3813fe7baaaa79d3e96}\label{bezier_8cpp_aefa5c486c2a7f3813fe7baaaa79d3e96}} 
+int {\bfseries R\+ES} = 1000
+\item 
+\mbox{\Hypertarget{bezier_8cpp_a2c8c1405ce3c3204564222b655aaabc3}\label{bezier_8cpp_a2c8c1405ce3c3204564222b655aaabc3}} 
+float {\bfseries drag\+\_\+x}
+\item 
+\mbox{\Hypertarget{bezier_8cpp_a4724dc00458c4d68be52f5e190468d59}\label{bezier_8cpp_a4724dc00458c4d68be52f5e190468d59}} 
+float {\bfseries drag\+\_\+y}
+\item 
+\mbox{\Hypertarget{bezier_8cpp_a4cad32e1f214ebac2bce13faf3a1738a}\label{bezier_8cpp_a4cad32e1f214ebac2bce13faf3a1738a}} 
+clock\+\_\+t {\bfseries begin\+Time}
+\item 
+\mbox{\Hypertarget{bezier_8cpp_a9d10e4ab403e488d4759c58394624ef2}\label{bezier_8cpp_a9d10e4ab403e488d4759c58394624ef2}} 
+clock\+\_\+t {\bfseries end\+Time}
+\item 
+\mbox{\Hypertarget{bezier_8cpp_a2cab24ab95d21cfad6178e9216ca8901}\label{bezier_8cpp_a2cab24ab95d21cfad6178e9216ca8901}} 
+float {\bfseries time\+Diff}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{bezier_8cpp_a400318ff753047443b2de12efd62b63d}\label{bezier_8cpp_a400318ff753047443b2de12efd62b63d}} 
+\index{bezier.\+cpp@{bezier.\+cpp}!add\+\_\+coordinates@{add\+\_\+coordinates}}
+\index{add\+\_\+coordinates@{add\+\_\+coordinates}!bezier.\+cpp@{bezier.\+cpp}}
+\subsubsection{\texorpdfstring{add\+\_\+coordinates()}{add\_coordinates()}}
+{\footnotesize\ttfamily void add\+\_\+coordinates (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+
+
+Adds coordinates to the control points array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x-\/coordinate to be added. \\
+\hline
+{\em y} & y-\/coordinate to be added. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{bezier_8cpp_a589c0f9f14b26d6b7aaece9a5ed3c9b9}\label{bezier_8cpp_a589c0f9f14b26d6b7aaece9a5ed3c9b9}} 
+\index{bezier.\+cpp@{bezier.\+cpp}!bezier@{bezier}}
+\index{bezier@{bezier}!bezier.\+cpp@{bezier.\+cpp}}
+\subsubsection{\texorpdfstring{bezier()}{bezier()}}
+{\footnotesize\ttfamily void bezier (\begin{DoxyParamCaption}\item[{float}]{controls\mbox{[}$\,$\mbox{]}\mbox{[}2\mbox{]},  }\item[{int}]{number,  }\item[{float}]{t }\end{DoxyParamCaption})}
+
+
+
+Constructs a bezier curve recursively using de\+Casteljau\textquotesingle{}s algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em controls} & 2 column matrix of vertices recursively lerped. \\
+\hline
+{\em number} & number of coordinates \\
+\hline
+{\em t} & distance on the line segment between two vertices \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{bezier_8cpp_a1e5b20fed15743656bb6d2e6a6ea6269}\label{bezier_8cpp_a1e5b20fed15743656bb6d2e6a6ea6269}} 
+\index{bezier.\+cpp@{bezier.\+cpp}!display@{display}}
+\index{display@{display}!bezier.\+cpp@{bezier.\+cpp}}
+\subsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily void display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Open\+GL display callback. Runs the bezier curve implementation. 
+
+\mbox{\Hypertarget{bezier_8cpp_a02fd73d861ef2e4aabb38c0c9ff82947}\label{bezier_8cpp_a02fd73d861ef2e4aabb38c0c9ff82947}} 
+\index{bezier.\+cpp@{bezier.\+cpp}!init@{init}}
+\index{init@{init}!bezier.\+cpp@{bezier.\+cpp}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes Open\+GL parameters. 
+
+\mbox{\Hypertarget{bezier_8cpp_aead2e7e3120ea992263427dbc4faf541}\label{bezier_8cpp_aead2e7e3120ea992263427dbc4faf541}} 
+\index{bezier.\+cpp@{bezier.\+cpp}!lerp@{lerp}}
+\index{lerp@{lerp}!bezier.\+cpp@{bezier.\+cpp}}
+\subsubsection{\texorpdfstring{lerp()}{lerp()}}
+{\footnotesize\ttfamily float$\ast$ lerp (\begin{DoxyParamCaption}\item[{float}]{start\mbox{[}2\mbox{]},  }\item[{float}]{end\mbox{[}2\mbox{]},  }\item[{float}]{t }\end{DoxyParamCaption})}
+
+
+
+Point on the line segment between 2 points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & 2 dimensional start vertex. \\
+\hline
+{\em end} & 2 dimensional end vertex. \\
+\hline
+{\em t} & float value -\/ increment parameter whose value defines the points on the curve. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{bezier_8cpp_ac76a5d78172a826cd6ee9512b89a86c0}\label{bezier_8cpp_ac76a5d78172a826cd6ee9512b89a86c0}} 
+\index{bezier.\+cpp@{bezier.\+cpp}!mouse@{mouse}}
+\index{mouse@{mouse}!bezier.\+cpp@{bezier.\+cpp}}
+\subsubsection{\texorpdfstring{mouse()}{mouse()}}
+{\footnotesize\ttfamily void mouse (\begin{DoxyParamCaption}\item[{int}]{button,  }\item[{int}]{state,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Open\+GL mouse callback based on the mouse button clicked and click-\/time. If left mouse button is clicked for a brief amount of time, then we add a new control point. We can drag the points by holding down the left mouse button over the required point and move to a new position on the screen. If right mouse button is clicked on a point then that point is deleted. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em button} & Button clicked on the mouse. \\
+\hline
+{\em state} & \+: State of the button clicked. \\
+\hline
+{\em x,y} & Inverted coordinates on the window \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{bezier_8cpp_ae13f73697abbca1016876a62a2193940}\label{bezier_8cpp_ae13f73697abbca1016876a62a2193940}} 
+\index{bezier.\+cpp@{bezier.\+cpp}!plot\+Point@{plot\+Point}}
+\index{plot\+Point@{plot\+Point}!bezier.\+cpp@{bezier.\+cpp}}
+\subsubsection{\texorpdfstring{plot\+Point()}{plotPoint()}}
+{\footnotesize\ttfamily void plot\+Point (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{float}]{color }\end{DoxyParamCaption})}
+
+
+
+Plots point on the window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x-\/coordinate to be plotted. \\
+\hline
+{\em y} & y-\/coordinate to be plotted. \\
+\hline
+{\em color} & r value in the rgb scheme. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{bezier_8cpp_a953cf853ec51807b3cfe5f6ca96e6547}\label{bezier_8cpp_a953cf853ec51807b3cfe5f6ca96e6547}} 
+\index{bezier.\+cpp@{bezier.\+cpp}!remove\+\_\+coordinates@{remove\+\_\+coordinates}}
+\index{remove\+\_\+coordinates@{remove\+\_\+coordinates}!bezier.\+cpp@{bezier.\+cpp}}
+\subsubsection{\texorpdfstring{remove\+\_\+coordinates()}{remove\_coordinates()}}
+{\footnotesize\ttfamily void remove\+\_\+coordinates (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+
+
+Removes coordinates from control points array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x-\/coordinate to be removed. \\
+\hline
+{\em y} & y-\/coordinate to be removed. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{bezier_8cpp_a9f40831210a497d8188a40ea8418fbc2}\label{bezier_8cpp_a9f40831210a497d8188a40ea8418fbc2}} 
+\index{bezier.\+cpp@{bezier.\+cpp}!replace\+\_\+coordinates@{replace\+\_\+coordinates}}
+\index{replace\+\_\+coordinates@{replace\+\_\+coordinates}!bezier.\+cpp@{bezier.\+cpp}}
+\subsubsection{\texorpdfstring{replace\+\_\+coordinates()}{replace\_coordinates()}}
+{\footnotesize\ttfamily void replace\+\_\+coordinates (\begin{DoxyParamCaption}\item[{float}]{x\+\_\+old,  }\item[{float}]{y\+\_\+old,  }\item[{float}]{x\+\_\+new,  }\item[{float}]{y\+\_\+new }\end{DoxyParamCaption})}
+
+
+
+Replaces a control point in the array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+\_\+old} & x-\/coordinate to be replaced. \\
+\hline
+{\em y\+\_\+old} & y-\/coordinate to be replaced. \\
+\hline
+{\em x\+\_\+new} & new x-\/coordinate \\
+\hline
+{\em y\+\_\+new} & new y-\/coordinate \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{bezier_8cpp_a1af842d08fc34015f83bb0d890c9e69b}\label{bezier_8cpp_a1af842d08fc34015f83bb0d890c9e69b}} 
+\index{bezier.\+cpp@{bezier.\+cpp}!control\+\_\+points@{control\+\_\+points}}
+\index{control\+\_\+points@{control\+\_\+points}!bezier.\+cpp@{bezier.\+cpp}}
+\subsubsection{\texorpdfstring{control\+\_\+points}{control\_points}}
+{\footnotesize\ttfamily float control\+\_\+points\mbox{[}100\mbox{]}\mbox{[}2\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{
+
+\}
+\end{DoxyCode}

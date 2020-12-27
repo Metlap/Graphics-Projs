@@ -1,0 +1,149 @@
+\hypertarget{main_8cpp}{}\section{C\+:/\+Users/sai/\+Desktop/try/main.cpp File Reference}
+\label{main_8cpp}\index{C\+:/\+Users/sai/\+Desktop/try/main.\+cpp@{C\+:/\+Users/sai/\+Desktop/try/main.\+cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$G\+L/glut.\+h$>$}\newline
+{\ttfamily \#include $<$glm/glm.\+hpp$>$}\newline
+{\ttfamily \#include $<$glm/vec3.\+hpp$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$bits/stdc++.\+h$>$}\newline
+{\ttfamily \#include $<$windows.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}table.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}chair.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fan.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}bed.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}clock.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}shelf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}vase.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Object\+Loader2.\+8.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8cpp_ad3867b557681db50d23725dae5f5e22b}{draw\+Outline}} ()
+\item 
+void \mbox{\hyperlink{main_8cpp_a33e20b37682a0492a9e95d13bef17f02}{change\+Size}} (int w, int h)
+\item 
+void \mbox{\hyperlink{main_8cpp_ab25f71c66e769ed245eebb280c562ae2}{my\+Draw}} (void)
+\item 
+void \mbox{\hyperlink{main_8cpp_a8264fa9a7444ab4805520c3d018b6623}{myinit}} ()
+\item 
+void \mbox{\hyperlink{main_8cpp_a896e882e225b3fea4c8d2063ca86bed0}{update}} (int data)
+\item 
+void \mbox{\hyperlink{main_8cpp_a921b29eb9802cb833818c43c4b17cb37}{process\+Normal\+Keys}} (unsigned char key, int x, int y)
+\item 
+void \mbox{\hyperlink{main_8cpp_a64f0952205a2d490b6b5f14b806e3eb7}{process\+Special\+Keys}} (int key, int x, int y)
+\item 
+\mbox{\Hypertarget{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+int {\bfseries main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8cpp_a39b0fab2100e4a953e64fec8663faef4}\label{main_8cpp_a39b0fab2100e4a953e64fec8663faef4}} 
+double {\bfseries rotate\+\_\+x} = 0.\+0f
+\item 
+\mbox{\Hypertarget{main_8cpp_aa2b2c931938813238e9d3004b7cc3e0c}\label{main_8cpp_aa2b2c931938813238e9d3004b7cc3e0c}} 
+double {\bfseries rotate\+\_\+y} = 0.\+0f
+\item 
+\mbox{\Hypertarget{main_8cpp_a34c057a0378030db67bd6a129f37d938}\label{main_8cpp_a34c057a0378030db67bd6a129f37d938}} 
+double \mbox{\hyperlink{main_8cpp_a34c057a0378030db67bd6a129f37d938}{pitch}} =0.\+0f
+\begin{DoxyCompactList}\small\item\em The angle specifies the magnitude to which we are looking up or down. Calculated w.\+r.\+t x-\/axis. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8cpp_a21cd490f6191f66678f55b4c242a10cf}\label{main_8cpp_a21cd490f6191f66678f55b4c242a10cf}} 
+double \mbox{\hyperlink{main_8cpp_a21cd490f6191f66678f55b4c242a10cf}{yaw}} =-\/90.\+0f
+\begin{DoxyCompactList}\small\item\em The angle specifies the magnitude to which we are looking left or right. Calculated w.\+r.\+t y-\/axis. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8cpp_aaf72b1fe5ab339da8e67c2253fa7f92a}\label{main_8cpp_aaf72b1fe5ab339da8e67c2253fa7f92a}} 
+double \mbox{\hyperlink{main_8cpp_aaf72b1fe5ab339da8e67c2253fa7f92a}{fov}} =45.\+0f
+\begin{DoxyCompactList}\small\item\em This angle defines how much we can see of the scene. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8cpp_a69a74bb091f45631c2e67e95fcc436d5}\label{main_8cpp_a69a74bb091f45631c2e67e95fcc436d5}} 
+glm\+::dvec3 \mbox{\hyperlink{main_8cpp_a69a74bb091f45631c2e67e95fcc436d5}{camera\+Pos}} =glm\+::dvec3(0.\+0f,0.\+0f,4.\+0f)
+\begin{DoxyCompactList}\small\item\em 3D vector that contains the position of camera i.\+e the P\+RP \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8cpp_a1f069f9773eb8dee25aa33cd7eacb407}\label{main_8cpp_a1f069f9773eb8dee25aa33cd7eacb407}} 
+glm\+::dvec3 \mbox{\hyperlink{main_8cpp_a1f069f9773eb8dee25aa33cd7eacb407}{direction\+Sight}} =glm\+::dvec3(0.\+0f,0.\+0f,-\/1.\+0f)
+\begin{DoxyCompactList}\small\item\em 3D vector that contains the direction of P\+RP w.\+r.\+t V\+RP \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8cpp_a51fdec23d724a979e4c05fa996e53e32}\label{main_8cpp_a51fdec23d724a979e4c05fa996e53e32}} 
+glm\+::dvec3 \mbox{\hyperlink{main_8cpp_a51fdec23d724a979e4c05fa996e53e32}{up\+Vec}} =glm\+::dvec3(0.\+0f,1.\+0f,0.\+0f)
+\begin{DoxyCompactList}\small\item\em 3D vector that contains the direction that defines what direction is UP \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8cpp_a8ad2d15b06ee25d198e74ec0e41e7b47}\label{main_8cpp_a8ad2d15b06ee25d198e74ec0e41e7b47}} 
+float {\bfseries zoomf} = 1
+\item 
+\mbox{\Hypertarget{main_8cpp_a4f43290fb7c227c99bac275f57c87857}\label{main_8cpp_a4f43290fb7c227c99bac275f57c87857}} 
+double {\bfseries fraction} =0.\+1f
+\item 
+\mbox{\Hypertarget{main_8cpp_a340bd5fe8f3674751a909b5b40c4de11}\label{main_8cpp_a340bd5fe8f3674751a909b5b40c4de11}} 
+string {\bfseries filename1} = \char`\"{}./table.\+obj\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8cpp_a6e6ab61e100afdeb063c897c90b6fe00}\label{main_8cpp_a6e6ab61e100afdeb063c897c90b6fe00}} 
+\mbox{\hyperlink{class_obj_model_loader}{Obj\+Model\+Loader}} $\ast$ {\bfseries table\+Model} = N\+U\+LL
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_a33e20b37682a0492a9e95d13bef17f02}\label{main_8cpp_a33e20b37682a0492a9e95d13bef17f02}} 
+\index{main.\+cpp@{main.\+cpp}!change\+Size@{change\+Size}}
+\index{change\+Size@{change\+Size}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{change\+Size()}{changeSize()}}
+{\footnotesize\ttfamily void change\+Size (\begin{DoxyParamCaption}\item[{int}]{w,  }\item[{int}]{h }\end{DoxyParamCaption})}
+
+This function is the reshape function that is called everytime an Open\+GL window is generated 
+\begin{DoxyParams}{Parameters}
+{\em w} & The width of the window. \\
+\hline
+{\em h} & The height of the window. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8cpp_ad3867b557681db50d23725dae5f5e22b}\label{main_8cpp_ad3867b557681db50d23725dae5f5e22b}} 
+\index{main.\+cpp@{main.\+cpp}!draw\+Outline@{draw\+Outline}}
+\index{draw\+Outline@{draw\+Outline}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{draw\+Outline()}{drawOutline()}}
+{\footnotesize\ttfamily void draw\+Outline (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function draws the empty cubic frame that forms the prototype for our 3D scenes. \mbox{\Hypertarget{main_8cpp_ab25f71c66e769ed245eebb280c562ae2}\label{main_8cpp_ab25f71c66e769ed245eebb280c562ae2}} 
+\index{main.\+cpp@{main.\+cpp}!my\+Draw@{my\+Draw}}
+\index{my\+Draw@{my\+Draw}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{my\+Draw()}{myDraw()}}
+{\footnotesize\ttfamily void my\+Draw (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+This function is the display function that is registered with our Open\+GL instance.\+This routine is redrawn everytime the Open\+GL window is refreshed \mbox{\Hypertarget{main_8cpp_a8264fa9a7444ab4805520c3d018b6623}\label{main_8cpp_a8264fa9a7444ab4805520c3d018b6623}} 
+\index{main.\+cpp@{main.\+cpp}!myinit@{myinit}}
+\index{myinit@{myinit}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{myinit()}{myinit()}}
+{\footnotesize\ttfamily void myinit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function provides the initial settings for our Open\+GL window \mbox{\Hypertarget{main_8cpp_a921b29eb9802cb833818c43c4b17cb37}\label{main_8cpp_a921b29eb9802cb833818c43c4b17cb37}} 
+\index{main.\+cpp@{main.\+cpp}!process\+Normal\+Keys@{process\+Normal\+Keys}}
+\index{process\+Normal\+Keys@{process\+Normal\+Keys}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{process\+Normal\+Keys()}{processNormalKeys()}}
+{\footnotesize\ttfamily void process\+Normal\+Keys (\begin{DoxyParamCaption}\item[{unsigned char}]{key,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+This function details how to process all the keys for which A\+S\+C\+II values exist 
+\begin{DoxyParams}{Parameters}
+{\em key} & The key that has been pressed. \\
+\hline
+{\em x} & Integer parameter \\
+\hline
+{\em y} & Integer parameter \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8cpp_a64f0952205a2d490b6b5f14b806e3eb7}\label{main_8cpp_a64f0952205a2d490b6b5f14b806e3eb7}} 
+\index{main.\+cpp@{main.\+cpp}!process\+Special\+Keys@{process\+Special\+Keys}}
+\index{process\+Special\+Keys@{process\+Special\+Keys}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{process\+Special\+Keys()}{processSpecialKeys()}}
+{\footnotesize\ttfamily void process\+Special\+Keys (\begin{DoxyParamCaption}\item[{int}]{key,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+This function details how to process all the keys for which A\+S\+C\+II values do not exist 
+\begin{DoxyParams}{Parameters}
+{\em key} & The key that has been pressed. \\
+\hline
+{\em x} & Integer parameter \\
+\hline
+{\em y} & Integer parameter \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8cpp_a896e882e225b3fea4c8d2063ca86bed0}\label{main_8cpp_a896e882e225b3fea4c8d2063ca86bed0}} 
+\index{main.\+cpp@{main.\+cpp}!update@{update}}
+\index{update@{update}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void update (\begin{DoxyParamCaption}\item[{int}]{data }\end{DoxyParamCaption})}
+
+This function details the time intervals at which to redraw the scene in Open\+GL 

@@ -1,0 +1,15 @@
+
+g++ main.cpp tree.cpp primitives.cpp -lopengl32 -lglu32 -lglew32 -lfreeglut
+
+
+g++ main.cpp vase.cpp bed.cpp chair.cpp table.cpp shelf.cpp clock.cpp fan.cpp -lopengl32 -lglu32 -lglut32 -lglew32
+
+
+g++ bezier1.cpp -lopengl32 -lglu32 -lglew32 -lglut32
+
+
+g++ myWorm.cpp -lopengl32 -lglu32 -lglew32 -lglut32
+
+
+
+

@@ -1,0 +1,228 @@
+\hypertarget{class_obj_model_loader}{}\section{Obj\+Model\+Loader Class Reference}
+\label{class_obj_model_loader}\index{Obj\+Model\+Loader@{Obj\+Model\+Loader}}
+
+
+{\ttfamily \#include $<$Object\+Loader2.\+8.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_obj_model_loader_afcdb98fbbeba6fa0551b772ca959347d}{Obj\+Model\+Loader}} (string filename)
+\item 
+\mbox{\hyperlink{class_obj_model_loader_a203757d2c67c25889be3d61f140bc365}{$\sim$\+Obj\+Model\+Loader}} ()
+\item 
+void \mbox{\hyperlink{class_obj_model_loader_ae71538b366c781ec45f7ebe4fec84ed7}{Draw}} (float zoomf)
+\item 
+\mbox{\hyperlink{class_obj_model_loader_afcdb98fbbeba6fa0551b772ca959347d}{Obj\+Model\+Loader}} (string filename)
+\item 
+\mbox{\hyperlink{class_obj_model_loader_a203757d2c67c25889be3d61f140bc365}{$\sim$\+Obj\+Model\+Loader}} ()
+\item 
+void \mbox{\hyperlink{class_obj_model_loader_a65fe8c583425b7c77577ababd9073d37}{Draw}} ()
+\item 
+\mbox{\hyperlink{class_obj_model_loader_afcdb98fbbeba6fa0551b772ca959347d}{Obj\+Model\+Loader}} (string filename)
+\item 
+\mbox{\hyperlink{class_obj_model_loader_a203757d2c67c25889be3d61f140bc365}{$\sim$\+Obj\+Model\+Loader}} ()
+\item 
+void \mbox{\hyperlink{class_obj_model_loader_a65fe8c583425b7c77577ababd9073d37}{Draw}} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_obj_model_loader_a83b99c2d462f9e4f031ef200d5330647}\label{class_obj_model_loader_a83b99c2d462f9e4f031ef200d5330647}} 
+vector$<$ string $>$ $\ast$ {\bfseries Get\+Splitted\+Strings} (string text, char delimeter)
+\item 
+\mbox{\Hypertarget{class_obj_model_loader_aa3fb4cc6287719936e0aadadbee23074}\label{class_obj_model_loader_aa3fb4cc6287719936e0aadadbee23074}} 
+float {\bfseries Get\+Float\+From\+String} (string text)
+\item 
+float $\ast$ \mbox{\hyperlink{class_obj_model_loader_a6b2aa4e718570359e6b654ad948c0aa3}{Get\+Normal}} (float $\ast$coord1, float $\ast$coord2, float $\ast$coord3)
+\item 
+\mbox{\Hypertarget{class_obj_model_loader_a09572365c5686cd5fe7c967c954ff2a2}\label{class_obj_model_loader_a09572365c5686cd5fe7c967c954ff2a2}} 
+vector$<$ string $>$ $\ast$ {\bfseries Get\+Splitted\+Strings} (string text, char delimeter)
+\item 
+\mbox{\Hypertarget{class_obj_model_loader_aa3fb4cc6287719936e0aadadbee23074}\label{class_obj_model_loader_aa3fb4cc6287719936e0aadadbee23074}} 
+float {\bfseries Get\+Float\+From\+String} (string text)
+\item 
+float $\ast$ \mbox{\hyperlink{class_obj_model_loader_ab7e5baa8ba27e56f828e1591f199f41b}{Get\+Normal}} (float $\ast$coord1, float $\ast$coord2, float $\ast$coord3)
+\item 
+\mbox{\Hypertarget{class_obj_model_loader_a09572365c5686cd5fe7c967c954ff2a2}\label{class_obj_model_loader_a09572365c5686cd5fe7c967c954ff2a2}} 
+vector$<$ string $>$ $\ast$ {\bfseries Get\+Splitted\+Strings} (string text, char delimeter)
+\item 
+\mbox{\Hypertarget{class_obj_model_loader_aa3fb4cc6287719936e0aadadbee23074}\label{class_obj_model_loader_aa3fb4cc6287719936e0aadadbee23074}} 
+float {\bfseries Get\+Float\+From\+String} (string text)
+\item 
+float $\ast$ \mbox{\hyperlink{class_obj_model_loader_ab7e5baa8ba27e56f828e1591f199f41b}{Get\+Normal}} (float $\ast$coord1, float $\ast$coord2, float $\ast$coord3)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_obj_model_loader_aa73d94f3fe247157fb21c2eb5b37b597}\label{class_obj_model_loader_aa73d94f3fe247157fb21c2eb5b37b597}} 
+string {\bfseries filename} = \char`\"{}\char`\"{}
+\item 
+\mbox{\Hypertarget{class_obj_model_loader_a93cc7093ffdb762f35bb91d05b71eaae}\label{class_obj_model_loader_a93cc7093ffdb762f35bb91d05b71eaae}} 
+vector$<$ vector$<$ float $>$ $\ast$ $>$ $\ast$ {\bfseries normals} = new vector$<$vector$<$float$>$$\ast$$>$
+\item 
+\mbox{\Hypertarget{class_obj_model_loader_a5ad222f74161b20dc145c20d7d04b533}\label{class_obj_model_loader_a5ad222f74161b20dc145c20d7d04b533}} 
+vector$<$ vector$<$ float $>$ $\ast$ $>$ $\ast$ {\bfseries vertices} = new vector$<$vector$<$float$>$$\ast$$>$
+\item 
+\mbox{\Hypertarget{class_obj_model_loader_a174ce0a1a1d5fc080fb45ef1db15bba6}\label{class_obj_model_loader_a174ce0a1a1d5fc080fb45ef1db15bba6}} 
+vector$<$ vector$<$ int $>$ $\ast$ $>$ $\ast$ {\bfseries faces} = new vector$<$vector$<$int$>$$\ast$$>$
+\item 
+\mbox{\Hypertarget{class_obj_model_loader_aa79a3b2e391f26545929f8777c7f5207}\label{class_obj_model_loader_aa79a3b2e391f26545929f8777c7f5207}} 
+vector$<$ vector$<$ int $>$ $\ast$ $>$ $\ast$ {\bfseries face\+Norms} = new vector$<$vector$<$int$>$$\ast$$>$
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Loads model from Wavefront Obj file ($\ast$.obj). Using triangles and normals as static object. No texture mapping.
+
+Warning\+: O\+BJ files must be triangulated. Non triangulated objects wont work! You can use Blender to triangulate.
+
+Exporting as Obj File on Blender\+: (a) Open Blender program. Create your model. (b) File -\/$>$ Export -\/$>$ Wavefront (.obj) (c) Now at the left side panel on \char`\"{}\+Export Obj\char`\"{} section check on \char`\"{}\+Triangulate Faces\char`\"{}. (d) Click on \char`\"{}\+Export O\+B\+J\char`\"{} button. It produce two files. For example\+: cube.\+obj and cube.\+mtl. We will only need the $\ast$.obj file only.
+
+Sample Usage\+: \mbox{\hyperlink{class_obj_model_loader}{Obj\+Model\+Loader}} $\ast$mesh = N\+U\+LL; mesh = new \mbox{\hyperlink{class_obj_model_loader}{Obj\+Model\+Loader}}(\char`\"{}\+C\+:\textbackslash{}\textbackslash{}data\textbackslash{}\textbackslash{}filename.\+obj\char`\"{});
+
+mesh-\/$>$\mbox{\hyperlink{class_obj_model_loader_a65fe8c583425b7c77577ababd9073d37}{Draw()}}; \begin{Desc}
+\item[Examples\+: ]\par
+\mbox{\hyperlink{_c_1_2_users_2sai_2_desktop_2try_2_object_loader2_88_8h-example}{C\+:/\+Users/sai/\+Desktop/try/\+Object\+Loader2.\+8.\+h}}, \mbox{\hyperlink{_c_1_2_users_2sai_2_desktop_2try_2_obj_model_loader_8cpp-example}{C\+:/\+Users/sai/\+Desktop/try/\+Obj\+Model\+Loader.\+cpp}}, and \mbox{\hyperlink{_c_1_2_users_2sai_2_desktop_2try_2_obj_model_loader_8h-example}{C\+:/\+Users/sai/\+Desktop/try/\+Obj\+Model\+Loader.\+h}}.\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_obj_model_loader_afcdb98fbbeba6fa0551b772ca959347d}\label{class_obj_model_loader_afcdb98fbbeba6fa0551b772ca959347d}} 
+\index{Obj\+Model\+Loader@{Obj\+Model\+Loader}!Obj\+Model\+Loader@{Obj\+Model\+Loader}}
+\index{Obj\+Model\+Loader@{Obj\+Model\+Loader}!Obj\+Model\+Loader@{Obj\+Model\+Loader}}
+\subsubsection{\texorpdfstring{Obj\+Model\+Loader()}{ObjModelLoader()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Obj\+Model\+Loader\+::\+Obj\+Model\+Loader (\begin{DoxyParamCaption}\item[{string}]{filename }\end{DoxyParamCaption})}
+
+Constructor 
+\begin{DoxyParams}{Parameters}
+{\em string} & filename File name of the $\ast$.obj file with path. Example\+: \char`\"{}\+C\+:\textbackslash{}\textbackslash{}data\textbackslash{}\textbackslash{}cube.\+obj\char`\"{} \\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[Examples\+: ]\par
+\mbox{\hyperlink{_c_1_2_users_2sai_2_desktop_2try_2_object_loader2_88_8h-example}{C\+:/\+Users/sai/\+Desktop/try/\+Object\+Loader2.\+8.\+h}}, and \mbox{\hyperlink{_c_1_2_users_2sai_2_desktop_2try_2_obj_model_loader_8cpp-example}{C\+:/\+Users/sai/\+Desktop/try/\+Obj\+Model\+Loader.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{class_obj_model_loader_a203757d2c67c25889be3d61f140bc365}\label{class_obj_model_loader_a203757d2c67c25889be3d61f140bc365}} 
+\index{Obj\+Model\+Loader@{Obj\+Model\+Loader}!````~Obj\+Model\+Loader@{$\sim$\+Obj\+Model\+Loader}}
+\index{````~Obj\+Model\+Loader@{$\sim$\+Obj\+Model\+Loader}!Obj\+Model\+Loader@{Obj\+Model\+Loader}}
+\subsubsection{\texorpdfstring{$\sim$\+Obj\+Model\+Loader()}{~ObjModelLoader()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Obj\+Model\+Loader\+::$\sim$\+Obj\+Model\+Loader (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destructor \begin{Desc}
+\item[Examples\+: ]\par
+\mbox{\hyperlink{_c_1_2_users_2sai_2_desktop_2try_2_object_loader2_88_8h-example}{C\+:/\+Users/sai/\+Desktop/try/\+Object\+Loader2.\+8.\+h}}, and \mbox{\hyperlink{_c_1_2_users_2sai_2_desktop_2try_2_obj_model_loader_8cpp-example}{C\+:/\+Users/sai/\+Desktop/try/\+Obj\+Model\+Loader.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{class_obj_model_loader_afcdb98fbbeba6fa0551b772ca959347d}\label{class_obj_model_loader_afcdb98fbbeba6fa0551b772ca959347d}} 
+\index{Obj\+Model\+Loader@{Obj\+Model\+Loader}!Obj\+Model\+Loader@{Obj\+Model\+Loader}}
+\index{Obj\+Model\+Loader@{Obj\+Model\+Loader}!Obj\+Model\+Loader@{Obj\+Model\+Loader}}
+\subsubsection{\texorpdfstring{Obj\+Model\+Loader()}{ObjModelLoader()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Obj\+Model\+Loader\+::\+Obj\+Model\+Loader (\begin{DoxyParamCaption}\item[{string}]{filename }\end{DoxyParamCaption})}
+
+Constructor 
+\begin{DoxyParams}{Parameters}
+{\em string} & filename File name of the $\ast$.obj file with path. Example\+: \char`\"{}\+C\+:\textbackslash{}\textbackslash{}data\textbackslash{}\textbackslash{}cube.\+obj\char`\"{} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_obj_model_loader_a203757d2c67c25889be3d61f140bc365}\label{class_obj_model_loader_a203757d2c67c25889be3d61f140bc365}} 
+\index{Obj\+Model\+Loader@{Obj\+Model\+Loader}!````~Obj\+Model\+Loader@{$\sim$\+Obj\+Model\+Loader}}
+\index{````~Obj\+Model\+Loader@{$\sim$\+Obj\+Model\+Loader}!Obj\+Model\+Loader@{Obj\+Model\+Loader}}
+\subsubsection{\texorpdfstring{$\sim$\+Obj\+Model\+Loader()}{~ObjModelLoader()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Obj\+Model\+Loader\+::$\sim$\+Obj\+Model\+Loader (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destructor \mbox{\Hypertarget{class_obj_model_loader_afcdb98fbbeba6fa0551b772ca959347d}\label{class_obj_model_loader_afcdb98fbbeba6fa0551b772ca959347d}} 
+\index{Obj\+Model\+Loader@{Obj\+Model\+Loader}!Obj\+Model\+Loader@{Obj\+Model\+Loader}}
+\index{Obj\+Model\+Loader@{Obj\+Model\+Loader}!Obj\+Model\+Loader@{Obj\+Model\+Loader}}
+\subsubsection{\texorpdfstring{Obj\+Model\+Loader()}{ObjModelLoader()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Obj\+Model\+Loader\+::\+Obj\+Model\+Loader (\begin{DoxyParamCaption}\item[{string}]{filename }\end{DoxyParamCaption})}
+
+Constructor 
+\begin{DoxyParams}{Parameters}
+{\em string} & filename File name of the $\ast$.obj file with path. Example\+: \char`\"{}\+C\+:\textbackslash{}\textbackslash{}data\textbackslash{}\textbackslash{}cube.\+obj\char`\"{} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_obj_model_loader_a203757d2c67c25889be3d61f140bc365}\label{class_obj_model_loader_a203757d2c67c25889be3d61f140bc365}} 
+\index{Obj\+Model\+Loader@{Obj\+Model\+Loader}!````~Obj\+Model\+Loader@{$\sim$\+Obj\+Model\+Loader}}
+\index{````~Obj\+Model\+Loader@{$\sim$\+Obj\+Model\+Loader}!Obj\+Model\+Loader@{Obj\+Model\+Loader}}
+\subsubsection{\texorpdfstring{$\sim$\+Obj\+Model\+Loader()}{~ObjModelLoader()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Obj\+Model\+Loader\+::$\sim$\+Obj\+Model\+Loader (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destructor 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_obj_model_loader_ae71538b366c781ec45f7ebe4fec84ed7}\label{class_obj_model_loader_ae71538b366c781ec45f7ebe4fec84ed7}} 
+\index{Obj\+Model\+Loader@{Obj\+Model\+Loader}!Draw@{Draw}}
+\index{Draw@{Draw}!Obj\+Model\+Loader@{Obj\+Model\+Loader}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Obj\+Model\+Loader\+::\+Draw (\begin{DoxyParamCaption}\item[{float}]{zoomf }\end{DoxyParamCaption})}
+
+Draws model from $\ast$.obj file. \mbox{\Hypertarget{class_obj_model_loader_a65fe8c583425b7c77577ababd9073d37}\label{class_obj_model_loader_a65fe8c583425b7c77577ababd9073d37}} 
+\index{Obj\+Model\+Loader@{Obj\+Model\+Loader}!Draw@{Draw}}
+\index{Draw@{Draw}!Obj\+Model\+Loader@{Obj\+Model\+Loader}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void Obj\+Model\+Loader\+::\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Draws model from $\ast$.obj file. \begin{Desc}
+\item[Examples\+: ]\par
+\mbox{\hyperlink{_c_1_2_users_2sai_2_desktop_2try_2_object_loader2_88_8h-example}{C\+:/\+Users/sai/\+Desktop/try/\+Object\+Loader2.\+8.\+h}}, and \mbox{\hyperlink{_c_1_2_users_2sai_2_desktop_2try_2_obj_model_loader_8cpp-example}{C\+:/\+Users/sai/\+Desktop/try/\+Obj\+Model\+Loader.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{class_obj_model_loader_a65fe8c583425b7c77577ababd9073d37}\label{class_obj_model_loader_a65fe8c583425b7c77577ababd9073d37}} 
+\index{Obj\+Model\+Loader@{Obj\+Model\+Loader}!Draw@{Draw}}
+\index{Draw@{Draw}!Obj\+Model\+Loader@{Obj\+Model\+Loader}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void Obj\+Model\+Loader\+::\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Draws model from $\ast$.obj file. \mbox{\Hypertarget{class_obj_model_loader_a6b2aa4e718570359e6b654ad948c0aa3}\label{class_obj_model_loader_a6b2aa4e718570359e6b654ad948c0aa3}} 
+\index{Obj\+Model\+Loader@{Obj\+Model\+Loader}!Get\+Normal@{Get\+Normal}}
+\index{Get\+Normal@{Get\+Normal}!Obj\+Model\+Loader@{Obj\+Model\+Loader}}
+\subsubsection{\texorpdfstring{Get\+Normal()}{GetNormal()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily float $\ast$ Obj\+Model\+Loader\+::\+Get\+Normal (\begin{DoxyParamCaption}\item[{float $\ast$}]{coord1,  }\item[{float $\ast$}]{coord2,  }\item[{float $\ast$}]{coord3 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Calculates normal from given points
+
+
+\begin{DoxyParams}{Parameters}
+{\em float} & $\ast$coord1, float $\ast$coord2, float $\ast$coord3 3 points of the triangle plane to be calculated for normal\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float$\ast$ Array of float where normal points are located x, y, z coordinate. 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples\+: ]\par
+\mbox{\hyperlink{_c_1_2_users_2sai_2_desktop_2try_2_obj_model_loader_8cpp-example}{C\+:/\+Users/sai/\+Desktop/try/\+Obj\+Model\+Loader.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{class_obj_model_loader_ab7e5baa8ba27e56f828e1591f199f41b}\label{class_obj_model_loader_ab7e5baa8ba27e56f828e1591f199f41b}} 
+\index{Obj\+Model\+Loader@{Obj\+Model\+Loader}!Get\+Normal@{Get\+Normal}}
+\index{Get\+Normal@{Get\+Normal}!Obj\+Model\+Loader@{Obj\+Model\+Loader}}
+\subsubsection{\texorpdfstring{Get\+Normal()}{GetNormal()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily float$\ast$ Obj\+Model\+Loader\+::\+Get\+Normal (\begin{DoxyParamCaption}\item[{float $\ast$}]{coord1,  }\item[{float $\ast$}]{coord2,  }\item[{float $\ast$}]{coord3 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Calculates normal from given points
+
+
+\begin{DoxyParams}{Parameters}
+{\em float} & $\ast$coord1, float $\ast$coord2, float $\ast$coord3 3 points of the triangle plane to be calculated for normal\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float$\ast$ Array of float where normal points are located x, y, z coordinate. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_obj_model_loader_ab7e5baa8ba27e56f828e1591f199f41b}\label{class_obj_model_loader_ab7e5baa8ba27e56f828e1591f199f41b}} 
+\index{Obj\+Model\+Loader@{Obj\+Model\+Loader}!Get\+Normal@{Get\+Normal}}
+\index{Get\+Normal@{Get\+Normal}!Obj\+Model\+Loader@{Obj\+Model\+Loader}}
+\subsubsection{\texorpdfstring{Get\+Normal()}{GetNormal()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily float$\ast$ Obj\+Model\+Loader\+::\+Get\+Normal (\begin{DoxyParamCaption}\item[{float $\ast$}]{coord1,  }\item[{float $\ast$}]{coord2,  }\item[{float $\ast$}]{coord3 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Calculates normal from given points
+
+
+\begin{DoxyParams}{Parameters}
+{\em float} & $\ast$coord1, float $\ast$coord2, float $\ast$coord3 3 points of the triangle plane to be calculated for normal\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float$\ast$ Array of float where normal points are located x, y, z coordinate. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/sai/\+Desktop/try/Object\+Loader2.\+8.\+h\item 
+C\+:/\+Users/sai/\+Desktop/try/\mbox{\hyperlink{_obj_model_loader_8cpp}{Obj\+Model\+Loader.\+cpp}}\item 
+C\+:/\+Users/sai/\+Desktop/try/Obj\+Model\+Loader.\+h\end{DoxyCompactItemize}

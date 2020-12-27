@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Computer Graphics Assignment</title>
+<style type="text/css">
+.red {
+	color: #F00;
+}
+body p {
+}
+.centerer {
+	text-align: center;
+}
+</style>
+</head>
+
+<body>
+<center>
+<h2>Computer Graphics Assignment</h2>
+<p>by 
+  <br>T. Anudeep - 2017A7PS0022H</br>
+  <br>M. Sai Karthik - 2017A7PS0260H</br>
+  <br>K. Vamsi Krishna - 2017A7PS0118H</br>
+</p>
+<p>Implementation of Tidier Algorithms</p>
+_________________________________________________________
+</center>
+<p></p>
+<h3>Line and Circle Drawing</h3>
+
+
+<p>Lines are drawn by using the modified algorithm of Bresenhalm's line drawing algorithm. The basic algorithm plots lines having positive slopes less than or equal to one and such that the x-coordinate of the first point is less than the that of second point. This covers only 1/8 of the total possible cases. The modified algorithm goes as follows: two functions are made handling two cases each. One of them handles the cases if the absolute value of the slope is less than one and the x-coordinate of the first point is less than that of the second point. The other is similar to the first except it handles the cases if the absolute value of the slope is greater than one. Then another function which handles all the cases, exchanges the points if needed and calls the correct function to draw the line.</p>
+<p>The midpoint circle drawing uses the 8-way symmetry from the horizontal and vertical axes as well as the y = x and y = -x axes about the center of the circle. The basic circle drawing algorithmis a bit modified to handle the position (or center) of the circle. Thus the circle drawing calculates all the pixels with respect to the origin but when plotting the pixels, all the pixels are plotted by a shift of the x and y coordinates of the center of the circle which is passed during the call.</p>
+<p>All these drawing functions are included in the header file &quot;primitives.h&quot;.</p>
+<h3>Node Structure for Tree Creation</h3>
+<p>The structure node contains requried data for a node needed to implement the algorithms. The node structure contains the following data:</p>
+<ul>
+  <li><font color = "red">llink </font>is a pointer to the left child node</li>
+  <li><span class="red">rlink</span> is a pointer to the right child node</li>
+  <li><span class="red">father</span> is a pointer to the parent node</li>
+  <li><span class="red">level</span> is an integer specifying the distance from the root</li>
+  <li><span class="red">offset</span> is an integer used in Tidier algorithm</li>
+  <li><span class="red">thread</span> is a boolean used in Tidier algorithm</li>
+  <li><span class="red">x</span> is an integer which specifies the x coordinate of the node (it's value varies on which algorithm is used)</li>
+  <li><span class="red">y</span> is an integer which specifies the y coordinate of the node (it's value varies on which algorithm is used)</li>
+</ul>
+<h3>Tree color</h3>
+<p>The class tree implements the tree data structure. All the non primitve functions are a member of this class. There is only one member variable which is a pointer to the root of the tree. The member functions of the class are:</p>
+<ul>
+  <li><span class="red">ArrBST</span> is a private function which takes an array as well as three integers start and finish and makes a pre-order BST array from all the integers from start and finish inclusive</li>
+  <li><span class="red">calcHeight</span> is a private function which has a default parameter of type node pointer. This function returns the height of the tree if no parameters are passed. If a parameter is passed it'll return the height of the subtree whose root is the parameter passed.</li>
+  <li><span class="red">initializer</span> is a private function which takes an array and the size of the array. This function will convert the array to the tree by creating variables of type node and assigning proper left and right children.</li>
+  <li><span class="red">drawtree</span> is a private function which has three default parameters. The first and second parameters specify the x and y coordinates of the parent of the current node being traversed. If no parameters have been passed, then the starting node is taken as the root of the tree and the first two parameters are the x and y coordinates of the root itself. For each node, the function draws a circle or a diamond (depending if it is a leaf or not) and also draws a line to the parent node's center. Then the function is recursively called to cover all the nodes.</li>
+  <li><span class="red">tree</span> is a constructor. There are two constructors: the first one takes the user input array as well as the size of the array and calls the initializer function. The second one takes an integer value for the number of nodes and a boolean value depending if the tree is required to be balanced</li>
+  <li><span class="red">Tidier</span> is a function which implements the tidier algorithm</li>
+  <li><span class="red">printTree</span> is a function which prints the inorder traversal. This is not required for the implementation of the algorithms but is used for debugging and testing</li>
+</ul>
+<h3>Analysis of Tidier Algorithm</h3>
+<p>A balanced tree of 'n' nodes gave the following timings</p>
+
+<table width="661" border="1">
+  <tr>
+    <td width="80" class="centerer">Number of Nodes</td>
+    <td width="213" class="centerer">Time Execution for Tidier</td>
+    <td width="218" class="centerer">Time taken to draw Tree</td>
+  </tr>
+  <tr>
+    <td class="centerer">1</td>
+    <td class="centerer">0</td>
+    <td class="centerer">0.01</td>
+  </tr>
+  <tr>
+    <td class="centerer">10</td>
+    <td class="centerer">0</td>
+    <td class="centerer">0.027</td>
+  </tr>
+  <tr>
+    <td class="centerer">20</td>
+    <td class="centerer">0</td>
+    <td class="centerer">0.042</td>
+  </tr>
+  <tr>
+    <td class="centerer">50</td>
+    <td class="centerer">0</td>
+    <td class="centerer">0.1</td>
+  </tr>
+  <tr>
+    <td class="centerer">100</td>
+    <td class="centerer">0</td>
+    <td class="centerer">0.184</td>
+  </tr>
+  <tr>
+    <td class="centerer">500</td>
+    <td class="centerer">0</td>
+    <td class="centerer">0.895</td>
+  </tr>
+  <tr>
+    <td class="centerer">1000</td>
+    <td class="centerer">0</td>
+    <td class="centerer">1.489</td>
+  </tr>
+  <tr>
+    <td class="centerer">10000</td>
+    <td class="centerer">0.001</td>
+    <td class="centerer">13.98</td>
+  </tr>
+  <tr>
+    <td class="centerer">50000</td>
+    <td class="centerer">0.003</td>
+    <td class="centerer">14.009</td>
+  </tr>
+  <tr>
+    <td class="centerer">100000</td>
+    <td class="centerer">0.021</td>
+    <td class="centerer">24.524</td>
+  </tr>
+  <tr>
+    <td class="centerer">200000</td>
+    <td class="centerer">0.039</td>
+    <td class="centerer">46.847</td>
+  </tr>
+  <tr>
+    <td class="centerer">1000000</td>
+    <td class="centerer">0.214</td>
+    <td class="centerer">192.562</td>
+  </tr>
+</table>
+<p>As we see in the graph, the time is linear with the number of nodes. Hence the time complexity is O(n).</p>
+<p>Here is the graph for the memory used with the number of nodes:</p>
+<p><img src="Figure_1.png" width="510" height="307" align="left" /></p>
+<p><img src="Figure_2.png" width="510" height="307" align="right" /></p>
+<h3>&nbsp;</h3>
+<h3>&nbsp;</h3>
+<h3>&nbsp;</h3>
+<h3>&nbsp;</h3>
+<h3>&nbsp;</h3>
+<h3>&nbsp;</h3>
+<h3>&nbsp;</h3>
+<p>&nbsp;</p>
+<h3>Implementation Issues</h3>
+<p>We have implemented the above algorithm in Visual Studio 2015 Community Edition. The limitations of these include lack of stack memory, hence vector dynamic allocation of memory was implemented instead. Even after implementing dynamic memory, the maximum order of 10 which was able to run was 7. Thus the maximum number of nodes possible 10^7 in the program. A few arrays were declared to implement the Tidy algorithm. Since the arrays are assigned stack memory, there is some wastage in memory. </p>
+<p>OpenGL has the origin at the lower left corner, however the origin is required at the upper left corner. For this, the pixel drawing function, doesn't draw the pixel (x, y) but draws the pixel (x, max - y) where max is the y dimension in pixels of the window</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

@@ -1,0 +1,63 @@
+\hypertarget{_c_1_2_users_2sai_2_desktop_2try_2_obj_model_loader_8h-example}{}\section{C\+:/\+Users/sai/\+Desktop/try/\+Obj\+Model\+Loader.\+h}
+Split string to individual strings according to given option
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & text Text to be splitted\\
+\hline
+\end{DoxyParams}
+char delimeter Separator for the string
+
+\begin{DoxyReturn}{Returns}
+vector$<$string$>$$\ast$ vector of strings
+\end{DoxyReturn}
+\begin{DoxyVerb}    If text = "Hello World", delimeter = ' '
+    Then { "Hello", "World" }\end{DoxyVerb}
+
+
+
+\begin{DoxyCodeInclude}
+
+\textcolor{preprocessor}{#ifndef OBJMODELLOADER\_H}
+\textcolor{preprocessor}{#define OBJMODELLOADER\_H}
+
+\textcolor{preprocessor}{#include <iostream>}
+\textcolor{preprocessor}{#include <cstdlib>}
+\textcolor{preprocessor}{#include <vector>}
+\textcolor{preprocessor}{#include <fstream>}
+\textcolor{preprocessor}{#include <sstream>}
+\textcolor{preprocessor}{#include <cmath>}
+
+\textcolor{preprocessor}{#ifdef \_\_APPLE\_\_}
+\textcolor{preprocessor}{    #include <GLUT/gl.h>}
+\textcolor{preprocessor}{#else}
+\textcolor{preprocessor}{    #include <GL/gl.h>}
+\textcolor{preprocessor}{#endif}
+
+\textcolor{keyword}{using namespace }\mbox{\hyperlink{namespacestd}{std}};
+
+\textcolor{keyword}{class }\mbox{\hyperlink{class_obj_model_loader}{ObjModelLoader}}
+\{
+    \textcolor{keyword}{public}:
+        \mbox{\hyperlink{class_obj_model_loader}{ObjModelLoader}}(\textcolor{keywordtype}{string} filename);
+
+        ~\mbox{\hyperlink{class_obj_model_loader}{ObjModelLoader}}();
+
+        \textcolor{keywordtype}{void} Draw();
+
+    \textcolor{keyword}{private}:
+        \textcolor{keywordtype}{string} filename = \textcolor{stringliteral}{""};
+
+        vector<vector<float>*> *vertices = \textcolor{keyword}{new} vector<vector<float>*>;
+        vector<vector<int>*>   *faces    = \textcolor{keyword}{new} vector<vector<int>*>;
+
+        vector<string>* GetSplittedStrings(\textcolor{keywordtype}{string} text, \textcolor{keywordtype}{char} delimeter);
+
+        \textcolor{keywordtype}{float} GetFloatFromString(\textcolor{keywordtype}{string} text);
+
+        \textcolor{keywordtype}{float}* GetNormal(\textcolor{keywordtype}{float} *coord1, \textcolor{keywordtype}{float} *coord2, \textcolor{keywordtype}{float} *coord3);
+\};
+
+\textcolor{preprocessor}{#endif // OBJMODELLOADER\_H}
+\end{DoxyCodeInclude}
+ 

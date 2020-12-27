@@ -1,0 +1,46 @@
+\hypertarget{struct_mass}{}\section{Mass Struct Reference}
+\label{struct_mass}\index{Mass@{Mass}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{struct_mass_a7e47cabb99c2108fa6b5a8295967aa4f}{add\+\_\+force}} (\mbox{\hyperlink{class_vector3f}{Vector3f}}, float)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_mass_a0c10550c393e04b31927ea2e19c79538}\label{struct_mass_a0c10550c393e04b31927ea2e19c79538}} 
+\mbox{\hyperlink{class_vector3f}{Vector3f}} {\bfseries force}
+\item 
+\mbox{\Hypertarget{struct_mass_a971611e5f9a951b0d4334d960386a900}\label{struct_mass_a971611e5f9a951b0d4334d960386a900}} 
+\mbox{\hyperlink{class_vector3f}{Vector3f}} {\bfseries velocity}
+\item 
+\mbox{\Hypertarget{struct_mass_a7e002d5ca8f425d06f4fe8a0c7f87ab3}\label{struct_mass_a7e002d5ca8f425d06f4fe8a0c7f87ab3}} 
+\mbox{\hyperlink{class_vector3f}{Vector3f}} {\bfseries position}
+\item 
+\mbox{\Hypertarget{struct_mass_ad42ebf0aa60e00964bec1622ee4abad8}\label{struct_mass_ad42ebf0aa60e00964bec1622ee4abad8}} 
+float {\bfseries mass}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Define the Particle having position, force and velocity component along with its mass.\+This also has the add\+\_\+force method defined for adding a spring force to find new velocity and position values 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_mass_a7e47cabb99c2108fa6b5a8295967aa4f}\label{struct_mass_a7e47cabb99c2108fa6b5a8295967aa4f}} 
+\index{Mass@{Mass}!add\+\_\+force@{add\+\_\+force}}
+\index{add\+\_\+force@{add\+\_\+force}!Mass@{Mass}}
+\subsubsection{\texorpdfstring{add\+\_\+force()}{add\_force()}}
+{\footnotesize\ttfamily void Mass\+::add\+\_\+force (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vector3f}{Vector3f}}}]{force,  }\item[{float}]{t }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{struct_mass_a7e47cabb99c2108fa6b5a8295967aa4f}{add\+\_\+force()}} function is defined to compute new postion and velocity vectors due to the force(spring + damping) acting on the masses. 
+\begin{DoxyParams}{Parameters}
+{\em force} & Force vector acting on the mass. \\
+\hline
+{\em t} & \+: The time interval. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/sai/\+Desktop/\+Worm-\/\+Motion/\mbox{\hyperlink{my_worm_8cpp}{my\+Worm.\+cpp}}\end{DoxyCompactItemize}

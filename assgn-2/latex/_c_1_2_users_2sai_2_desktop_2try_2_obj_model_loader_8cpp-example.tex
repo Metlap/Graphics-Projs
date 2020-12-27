@@ -1,0 +1,298 @@
+\hypertarget{_c_1_2_users_2sai_2_desktop_2try_2_obj_model_loader_8cpp-example}{}\section{C\+:/\+Users/sai/\+Desktop/try/\+Obj\+Model\+Loader.\+cpp}
+Split string to individual strings according to given option
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & text Text to be splitted\\
+\hline
+\end{DoxyParams}
+char delimeter Separator for the string
+
+\begin{DoxyReturn}{Returns}
+vector$<$string$>$$\ast$ vector of strings
+\end{DoxyReturn}
+\begin{DoxyVerb}    If text = "Hello World", delimeter = ' '
+    Then { "Hello", "World" }\end{DoxyVerb}
+
+
+
+\begin{DoxyCodeInclude}
+
+\textcolor{preprocessor}{#include <iostream>}
+\textcolor{preprocessor}{#include <cstdlib>}
+\textcolor{preprocessor}{#include <vector>}
+\textcolor{preprocessor}{#include <fstream>}
+\textcolor{preprocessor}{#include <sstream>}
+\textcolor{preprocessor}{#include <cmath>}
+
+\textcolor{preprocessor}{#ifdef \_\_APPLE\_\_}
+\textcolor{preprocessor}{    #include <GLUT/gl.h>}
+\textcolor{preprocessor}{#else}
+\textcolor{preprocessor}{    #include <GL/gl.h>}
+\textcolor{preprocessor}{#endif}
+
+\textcolor{keyword}{using namespace }\mbox{\hyperlink{namespacestd}{std}};
+
+\textcolor{keyword}{class }\mbox{\hyperlink{class_obj_model_loader}{ObjModelLoader}}
+\{
+    \textcolor{keyword}{public}:
+        \mbox{\hyperlink{class_obj_model_loader}{ObjModelLoader}}(\textcolor{keywordtype}{string} filename);
+
+        ~\mbox{\hyperlink{class_obj_model_loader}{ObjModelLoader}}();
+
+        \textcolor{keywordtype}{void} Draw();
+
+    \textcolor{keyword}{private}:
+        \textcolor{keywordtype}{string} filename = \textcolor{stringliteral}{""};
+
+        vector<vector<float>*> *vertices = \textcolor{keyword}{new} vector<vector<float>*>;
+        vector<vector<int>*>   *faces    = \textcolor{keyword}{new} vector<vector<int>*>;
+
+        vector<string>* GetSplittedStrings(\textcolor{keywordtype}{string} text, \textcolor{keywordtype}{char} delimeter);
+
+        \textcolor{keywordtype}{float} GetFloatFromString(\textcolor{keywordtype}{string} text);
+
+        \textcolor{keywordtype}{float}* GetNormal(\textcolor{keywordtype}{float} *coord1, \textcolor{keywordtype}{float} *coord2, \textcolor{keywordtype}{float} *coord3);
+\};
+
+
+\mbox{\hyperlink{class_obj_model_loader_afcdb98fbbeba6fa0551b772ca959347d}{ObjModelLoader::ObjModelLoader}}(\textcolor{keywordtype}{string} filename)
+\{
+    this->filename = filename;
+
+    \textcolor{comment}{// Open the *.obj file}
+    fstream *objFile = \textcolor{keyword}{new} fstream;
+    objFile->open(filename, ios\_base::in);
+
+    \textcolor{comment}{// If can't open the file}
+    \textcolor{keywordflow}{if} (!objFile->is\_open())
+    \{
+        cout << \textcolor{stringliteral}{"[!] ERROR: Unable to open the file"} << endl;
+
+        \textcolor{comment}{// Terminate the program}
+        exit(EXIT\_FAILURE);
+    \}
+
+    \textcolor{comment}{/*}
+\textcolor{comment}{        Sample *.obj file example}
+\textcolor{comment}{}
+\textcolor{comment}{        # Blender v2.73 (sub 0) OBJ File: ''}
+\textcolor{comment}{        # www.blender.org}
+\textcolor{comment}{        mtllib cube.mtl}
+\textcolor{comment}{        o Cube}
+\textcolor{comment}{        v 1.000000 -1.000000 -1.000000}
+\textcolor{comment}{        v 1.000000 -1.000000 1.000000}
+\textcolor{comment}{        v -1.000000 -1.000000 1.000000}
+\textcolor{comment}{        v -1.000000 -1.000000 -1.000000}
+\textcolor{comment}{        v 1.000000 1.000000 -0.999999}
+\textcolor{comment}{        v 0.999999 1.000000 1.000001}
+\textcolor{comment}{        v -1.000000 1.000000 1.000000}
+\textcolor{comment}{        v -1.000000 1.000000 -1.000000}
+\textcolor{comment}{        usemtl Material}
+\textcolor{comment}{        s off}
+\textcolor{comment}{        f 2 3 4}
+\textcolor{comment}{        f 8 7 6}
+\textcolor{comment}{        f 5 6 2}
+\textcolor{comment}{        f 6 7 3}
+\textcolor{comment}{        f 3 7 8}
+\textcolor{comment}{        f 1 4 8}
+\textcolor{comment}{        f 1 2 4}
+\textcolor{comment}{        f 5 8 6}
+\textcolor{comment}{        f 1 5 2}
+\textcolor{comment}{        f 2 6 3}
+\textcolor{comment}{        f 4 3 8}
+\textcolor{comment}{        f 5 1 8}
+\textcolor{comment}{     */}
+
+    \textcolor{keywordtype}{string} currentLine;
+
+    \textcolor{comment}{// Read every line}
+    \textcolor{keywordflow}{while} (!objFile->eof())
+    \{
+        getline(*objFile, currentLine);
+
+        \textcolor{comment}{// Split every line according to space}
+        vector<string> *parameters = this->GetSplittedStrings(currentLine, \textcolor{charliteral}{' '});
+
+        \textcolor{comment}{// If current line has information about vertices}
+        \textcolor{keywordflow}{if} (parameters->at(0) == \textcolor{stringliteral}{"v"})
+        \{
+            \textcolor{comment}{// Remove 'v' and keep the rest of the numbers}
+            parameters->erase(parameters->begin());
+
+            vector<float> *currentPoint = \textcolor{keyword}{new} vector<float>;
+
+            \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} index = 0; index < parameters->size(); index++)
+            \{
+                \textcolor{comment}{// Convert each x, y, z coordinate (as string) to float value}
+                currentPoint->push\_back(this->GetFloatFromString(parameters->at(index)));
+            \}
+
+            \textcolor{comment}{// Save that point on "vertices"}
+            vertices->push\_back(currentPoint);
+        \}
+        \textcolor{comment}{// If current line has information about faces}
+        \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (parameters->at(0) == \textcolor{stringliteral}{"f"})
+        \{
+            \textcolor{comment}{// Remove 'f' and keep the rest of the numbers}
+            parameters->erase(parameters->begin());
+
+            vector<int> *vertexIndexes = \textcolor{keyword}{new} vector<int>;
+
+            \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} index = 0; index < parameters->size(); index++)
+            \{
+                \textcolor{comment}{// Convert each face index (as string) to integer}
+                \textcolor{keywordtype}{int} faceIndex = this->GetFloatFromString(parameters->at(index));
+
+                \textcolor{comment}{// Our obj file uses indexing from 1. So, we are decrementing 1 to make it start from 0}
+                vertexIndexes->push\_back(--faceIndex);
+            \}
+
+            \textcolor{comment}{// And finally saving faces information}
+            faces->push\_back(vertexIndexes);
+        \}
+
+        \textcolor{comment}{// Freeing unnecessary memory}
+        \textcolor{keyword}{delete} parameters;
+    \}
+
+    \textcolor{comment}{// Closing the *.obj file}
+    objFile->close();
+\}
+
+\mbox{\hyperlink{class_obj_model_loader_a203757d2c67c25889be3d61f140bc365}{ObjModelLoader::~ObjModelLoader}}()
+\{
+    \textcolor{comment}{// Freeing unnecessary memory}
+    \textcolor{keyword}{delete} this->faces;
+    \textcolor{keyword}{delete} this->vertices;
+\}
+
+\textcolor{keywordtype}{void} \mbox{\hyperlink{class_obj_model_loader_a65fe8c583425b7c77577ababd9073d37}{ObjModelLoader::Draw}}()
+\{
+    \textcolor{comment}{// We will draw faces as triangles}
+    glBegin(GL\_TRIANGLES);
+
+    \textcolor{comment}{// For every faces}
+    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < faces->size(); i++)
+    \{
+        \textcolor{comment}{// There will be a normal for lighting}
+        \textcolor{keywordtype}{float} *normal = NULL;
+
+        \textcolor{comment}{// Since this is triangle, so every face must have 3 vertices}
+        \textcolor{keywordtype}{float} coord1[3],
+              coord2[3],
+              coord3[3];
+
+        \textcolor{comment}{// For every vertex/point}
+        \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < (faces->at(i))->size(); j++)
+        \{
+            \textcolor{keywordtype}{int} index = (faces->at(i))->at(j);
+
+            \textcolor{keywordflow}{switch}(j)
+            \{
+                \textcolor{comment}{// If 1st vertex, then save it to coord1}
+                \textcolor{keywordflow}{case} 0:
+                    coord1[0] = (vertices->at(index))->at(0);
+                    coord1[1] = (vertices->at(index))->at(1);
+                    coord1[2] = (vertices->at(index))->at(2);
+                    \textcolor{keywordflow}{break};
+
+                \textcolor{comment}{// If 2nd vertex, then save it to coord2}
+                \textcolor{keywordflow}{case} 1:
+                    coord2[0] = (vertices->at(index))->at(0);
+                    coord2[1] = (vertices->at(index))->at(1);
+                    coord2[2] = (vertices->at(index))->at(2);
+                    \textcolor{keywordflow}{break};
+
+                \textcolor{comment}{// If 3rd vertex, then save it to coord3}
+                \textcolor{keywordflow}{case} 2:
+                    coord3[0] = (vertices->at(index))->at(0);
+                    coord3[1] = (vertices->at(index))->at(1);
+                    coord3[2] = (vertices->at(index))->at(2);
+                    \textcolor{keywordflow}{break};
+            \}
+
+            \textcolor{comment}{// When we got all the 3 point/vertices, then calculate normal and draw the triangle}
+            \textcolor{keywordflow}{if} (j == 2)
+            \{
+                \textcolor{comment}{// Calculating normal}
+                normal = this->GetNormal(coord1, coord2, coord3);
+
+                \textcolor{comment}{// Setting normal for these vertices}
+                glNormal3f(normal[0], normal[2], normal[2]);
+
+                \textcolor{comment}{// Drawing the triangle as a face}
+                glVertex3f(coord1[0], coord1[1], coord1[2]);
+                glVertex3f(coord2[0], coord2[1], coord2[2]);
+                glVertex3f(coord3[0], coord3[1], coord3[2]);
+            \}
+        \}
+    \}
+
+    glEnd();
+\}
+
+vector<string>* ObjModelLoader::GetSplittedStrings(\textcolor{keywordtype}{string} text, \textcolor{keywordtype}{char} delimeter)
+\{
+    text += delimeter;
+
+    \textcolor{keywordtype}{string} word = \textcolor{stringliteral}{""};
+    vector<string> *words = \textcolor{keyword}{new} vector<string>;
+
+    \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} character = 0; character < text.length(); character++)
+    \{
+        \textcolor{keywordflow}{if} (text[character] != delimeter)
+        \{
+            word += text[character];
+        \}
+        \textcolor{keywordflow}{else}
+        \{
+            words->push\_back(word);
+            word = \textcolor{stringliteral}{""};
+        \}
+    \}
+
+    \textcolor{keywordflow}{return} words;
+\}
+
+\textcolor{keywordtype}{float} ObjModelLoader::GetFloatFromString(\textcolor{keywordtype}{string} text)
+\{
+    \textcolor{keywordtype}{float} value = 0.0f;
+
+    istringstream buffer(text);
+    buffer >> value;
+
+    \textcolor{keywordflow}{return} value;
+\}
+
+\textcolor{keywordtype}{float}* \mbox{\hyperlink{class_obj_model_loader_a6b2aa4e718570359e6b654ad948c0aa3}{ObjModelLoader::GetNormal}}(\textcolor{keywordtype}{float} *coord1, \textcolor{keywordtype}{float} *coord2, \textcolor{keywordtype}{float} *coord3)
+\{
+    \textcolor{comment}{// calculate Vector1 and Vector2}
+    \textcolor{keywordtype}{float} va[3], vb[3], vr[3];
+
+    va[0] = coord1[0] - coord2[0];
+    va[1] = coord1[1] - coord2[1];
+    va[2] = coord1[2] - coord2[2];
+
+    vb[0] = coord1[0] - coord3[0];
+    vb[1] = coord1[1] - coord3[1];
+    vb[2] = coord1[2] - coord3[2];
+
+    \textcolor{comment}{// cross product}
+    vr[0] = va[1] * vb[2] - vb[1] * va[2];
+    vr[1] = vb[0] * va[2] - va[0] * vb[2];
+    vr[2] = va[0] * vb[1] - vb[0] * va[1];
+
+    \textcolor{comment}{// normalization factor}
+    \textcolor{keywordtype}{float} val = sqrt(pow(vr[0], 2) + pow(vr[1], 2) + pow(vr[2], 2));
+
+    \textcolor{keywordtype}{float} norm[3] = \{0.0,0.0,0.0\};
+
+    norm[0] = vr[0] / val;
+    norm[1] = vr[1] / val;
+    norm[2] = vr[2] / val;
+
+    \textcolor{keywordflow}{return} norm;
+\}
+\end{DoxyCodeInclude}
+ 

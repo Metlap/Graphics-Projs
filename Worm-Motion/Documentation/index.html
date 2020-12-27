@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Worm Motion</title>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="css/main.css" rel="stylesheet" type="text/css">
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body style="padding-top: 70px">
+<div class="container-fluid">
+  <div class="row">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#topFixedNavbar1" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+          <a class="navbar-brand" href="#">Assignment 3</a></div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="topFixedNavbar1">
+          <ul class="nav navbar-nav">
+            <!-- <li><a href="#details">Details</a></li> -->
+            <li><a href="#credits">Team</a></li>
+            <li><a href ="#details">Implementation Details</a></li>
+            <li><a href="#test2">Results</a></li>
+            <li><a href="#details2">Issues</a></li>
+            <li><a href="#bibliography">References</a></li>
+            
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="Doxygen/html/index.html">Doxygen Documentation</a></li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h1>IS F311 : Computer Graphics</h1>
+      <h4>Project : Worm Motion</h4>
+  <!--     <hr>
+    </div>
+    <hr>
+  </div> -->
+   <hr>
+  <div class="row" id="credits">
+    <div class="col-md-11">
+      <h3>Team</h3>
+      <div class="row">
+        <div class="col-md-11">
+          <ul>
+            <li>M.V.SAI KARTHIK(2017A7PS0260H) 
+            <li>K.VAMSI KRISHNA  (2017A7PS0118H) 
+            <li>T.ANUDEEP (2017A7PS0022H) </li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+    <hr>
+
+  <div class="row" id="details">
+    <h3>Implementation Details </h3>
+    <ul>
+      <li> The worm is drawn using 3 ellipsoids having masses with springs between them. An orange torus ring is drawn as the worm’s scales so as to enhance the worm’s look.</li>
+      <li> The scene consists of a grass field having various garden objects and the worm’s house along with a path leading to the house.</li>
+    </ul>  
+    <br>
+    <h4><b>Algorithm</b></h4>
+    <div class="col-md-11">
+      <ul>
+        <li> For implementing the motion of a worm , a<b> 2 spring - 3 mass system </b> was implemented. The masses are implemented as ellipsoids(A,B,C) whose position and velocity vectors are calculated along the X,Y,Z directions .But the motion is 1-Dimensional along the X direction while the Y and Z coordinates for velocity and position are kept constant . The force acting on the masses was calculated using the formula: <b> f = k*(L - l) - D*dl/dt</b> <br/>where f = Force along spring direction,<br/> k = Spring force constant,<br/> D = Damping force,<br/> l = Current length of the spring,<br/> L = Minimum energy spring length</li>
+
+      <li>The velocity and position vectors of each mass are updated based on the acceleration acting on the particle. The acceleration was computed using the formula a = f/m. Based on acceleration value, the updated values of position and velocity vectors are: <br/><b> Velocity(new) = Velocity(old) + a*dt</b><br/><b> Position(new) = Position(old) + Velocity(new)*dt</b><br/>dt was maintained as 0.5 milliseconds for simulating the motion of the worm.</li>
+      
+
+       <li><b>Effect of directional friction on translation : </b> Due to the force acting on mass A the spring between A and B expands because of which there will be backward friction on A which results in mass A remaining stationary while B moves forward. Now the spring between B and C expands resulting in a backward friction on B making B stationary while C moves in forward direction. Due to this friction there will be translation along X axis of the spring mass - system.</br>
+       Directional friction is calculated by using a unit vector known as <b>Spine Vector (S).</b> This vector gives the direction of motion of the worm. It is computed using the formula:</br>
+
+        <b>   S = (XC-XA)/(|XA-XC|)</b></br>
+
+The velocity of the individual particles is set as:</br>
+
+         <b>  If S*V < 0.0 then V = V - S(S*V)</b></br>
+
+The above expression prevents backward sliding of the worm.
+
+Since motion of the worm is defined only along X axis:</br>
+
+        <b>    V = V - S(S*V) = 0; If S*V < 0.0</b></br>
+
+       </li>
+      </ul>
+    </div> 
+
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-16" id="test2">
+      <h3>Results</h3>
+      <br>
+    </div>
+  </div>
+   <div class="row">
+    <div class="col-md-16" id="tests">
+     <!--  <h4><b>Classroom Scenes</b></h4> -->
+      <div class="row">
+        <div class="col-md-6"> <a href="images/4.png"><img src="images/4.png" width="60%" class="img img-responsive"></a>
+        </div>
+         <div class="col-md-6"> <a href="images/5.png"><img src="images/5.png" width="60%" class="img img-responsive"></a>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+    <div class="row" id="details2">
+    <h3>Issues and Problems Faced</h3>
+    <div class="col-md-11">
+      <ul>
+        <li>There is a possibility of collision between the worm and the surface on which it moves . Collision detection and avoidance was not implemented.</li>
+        <li>Motion of worm on uneven surfaces and free fall motion includes the effect of gravitational force on the worm and is quite complex to implement.Hence to keep the implementation simple, the effect of gravity is ignored . </li>
+        <li>Experimentation was done with different refresh rates for glutTimerFunc. We used value of 50 as it allowed us to observe changes in the worm at a rate we considered optimal and pleasing to the eye.</li>
+      </ul>
+    </div>
+    </div>
+  <hr>
+
+  <div class="row" id="bibliography">
+    <div class="col-md-12">
+      <h3>References</h3>
+      <div class="row">
+        <div class="col-md-12">
+          <ul>
+            <li>The following implementation of the worm motion based on the following Siggraph Paper : <b>“The Motion Dynamics of Snakes and Worms” by Gavin S.P. Miller</b></br>
+          The following resources were useful while implementing mass – spring systems:</li>
+            <li><a href="http://www.ryanmwright.com/2009/10/03/implementing-a-mass-spring-system/">Ryan’s Blog: Implementing a Mass Spring system: http://www.ryanmwright.com/2009/10/03/implementing-a-mass-spring-system/</a></li>
+             <li><a href="http://cg.alexandra.dk/tag/spring-mass-system/">Spring mass system Alexandra Lab: http://cg.alexandra.dk/tag/spring-mass-system/</a></li>
+            <li><a href="http://math.hws.edu/bridgeman/courses/324/s06/doc/opengl.html">http://math.hws.edu/bridgeman/courses/324/s06/doc/opengl.html</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+    <br>
+  </div>
+
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
